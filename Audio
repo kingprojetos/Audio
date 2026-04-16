@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Veja isso 😳</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="margin:0; display:flex; justify-content:center; align-items:center; height:100vh; font-family:sans-serif;">
+
+  <h1>Carregando...</h1>
+
+  <audio id="audio" autoplay>
+    <source src="https://memes.casa/audio/gemido-whatsapp.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Força tocar o áudio (caso o navegador bloqueie)
+    window.onload = function() {
+      const audio = document.getElementById("audio");
+      audio.play().catch(() => {
+        // Se bloquear, toca ao primeiro clique
+        document.body.addEventListener("click", () => {
+          audio.play();
+        });
+      });
+    };
+  </script>
+
+</body>
+</html>
