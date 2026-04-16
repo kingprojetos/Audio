@@ -6,25 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body style="margin:0; display:flex; justify-content:center; align-items:center; height:100vh; font-family:sans-serif;">
+<body style="margin:0; display:flex; justify-content:center; align-items:center; height:100vh; font-family:sans-serif; background:black; color:white;">
 
-  <h1>Carregando...</h1>
+  <h1>Clique na tela 👀</h1>
 
-  <audio id="audio" autoplay>
+  <audio id="audio">
     <source src="https://memes.casa/audio/gemido-whatsapp.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    // Força tocar o áudio (caso o navegador bloqueie)
-    window.onload = function() {
-      const audio = document.getElementById("audio");
+    const audio = document.getElementById("audio");
+
+    // tenta tocar automaticamente
+    window.onload = () => {
       audio.play().catch(() => {
-        // Se bloquear, toca ao primeiro clique
-        document.body.addEventListener("click", () => {
-          audio.play();
-        });
+        console.log("Autoplay bloqueado");
       });
     };
+
+    // garante que vai tocar no clique
+    document.body.addEventListener("click", () => {
+      audio.play();
+    });
   </script>
 
 </body>
